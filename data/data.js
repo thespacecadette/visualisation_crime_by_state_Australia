@@ -5,7 +5,7 @@
     name:"flare",
     children:[
       {
-        name:"nsw",
+        name:"NSW",
         children: [
           {
             name: "Homicide",
@@ -405,7 +405,7 @@
         ]
       },
       {
-        name:"qld",
+        name:"QLD",
         children: [
           {
             name: "Homicide",
@@ -605,7 +605,7 @@
         ]
       },
       {
-        name:"sa",
+        name:"SA",
         children: [
           {
             name: "Homicide",
@@ -805,7 +805,7 @@
         ]
       },
       {
-        name:"wa",
+        name:"WA",
         children: [
           {
             name: "Homicide",
@@ -1005,7 +1005,7 @@
         ]
       },
       {
-        name:"tas",
+        name:"TAS",
         children: [
           {
             name: "Homicide",
@@ -1055,7 +1055,7 @@
               },
               {
                 name: "females",
-                value: -,
+                value: 0,
               },
             ]
           },
@@ -1205,7 +1205,7 @@
         ]
       },
       {
-        name:"nt",
+        name:"NT",
         children: [
           {
             name: "Homicide",
@@ -1405,7 +1405,7 @@
         ]
       },
       {
-        name:"act",
+        name:"ACT",
         children: [
           {
             name: "Homicide",
