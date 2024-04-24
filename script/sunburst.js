@@ -2,6 +2,8 @@
   'use strict';
 
   const sunburst = function () {
+    let INTERACTIVE_CLICK_STATE = 1;
+
     // Specify the chart’s dimensions.
     const width = 928;
     const height = width;
@@ -38,7 +40,35 @@
       .selectAll("path")
       .data(root.descendants().slice(1))
       .join("path")
-      .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
+      // .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
+      .attr("fill", d => {
+        if(d.depth === 2) {
+          console.log('____ clickState, name', INTERACTIVE_CLICK_STATE, d.data.name);
+          switch(d.data.name) {
+            case 'males': return d3.rgb("blue");
+            case 'females': return d3.color("pink");
+            case 'Homicide': return d3.rgb(239,62,91);
+            case 'Acts intended to cause injury': return d3.rgb(242,98,121);
+            case 'Sexual assault': return d3.rgb(246,143,160);
+            case 'Dangerous/negligent acts': return d3.rgb(75,37,109);
+            case 'Abduction/harassment': return d3.rgb(111,84,149);
+            case 'Robbery/extortion': return d3.rgb(160,158,214);
+            case 'Unlawful entry with intent': return d3.rgb(63,100,126);
+            case 'Theft': return d3.rgb(104,143,173);
+            case 'Fraud deception': return d3.rgb(159,193,211);
+            case 'Illicit drugs': return d3.rgb(0,176,178);
+            case 'Weapons/explosives': return d3.rgb(82,204,206);
+            case 'Property damage/env pollution': return d3.rgb(149,212,122);
+            case 'Public order': return d3.rgb(103,124,138);
+            case 'Offences against justice': return d3.rgb(178,162,150);
+            case 'Misc offences': return d3.rgb(201,201,201);
+            default: {
+            }
+          }
+        }
+        d = d.parent;
+        return color(d.data.name);
+      })
       .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
       .attr("pointer-events", d => arcVisible(d.current) ? "auto" : "none")
       .attr("d", d => arc(d.current));
